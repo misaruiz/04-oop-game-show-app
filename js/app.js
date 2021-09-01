@@ -24,7 +24,8 @@ for (key of document.getElementById('qwerty').querySelectorAll('.key')) {
 /**
  * Listens for physical keyboard input when phrase display is up
  */
-    document.addEventListener('keydown', (e) => { 
+    document.addEventListener('keydown', (e) => {
+        console.log(e); 
         if (document.getElementById('overlay').style.display === 'none') {
             for (const screenKey of document.getElementById('qwerty').querySelectorAll('.key')) {
                 if (screenKey.innerText.includes(e.key)) {

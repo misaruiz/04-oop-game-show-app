@@ -38,7 +38,6 @@ class Game {
     * and then directs the game based on a correct or incorrect guess.
     */
     handleInteraction(letterPress) { 
-        const activePhraseArray = this.activePhrase.phraseArray;
         if (this.activePhrase.checkLetter(letterPress)) {
             letterPress.classList.add('chosen');
                 this.activePhrase.showMatchedLetter(letterPress.innerText);
@@ -47,17 +46,20 @@ class Game {
                 }
         } else {
             letterPress.classList.add('wrong');
-                this.removeLife();
+                this.removeLife(letterPress);
         }
+        letterPress.disabled = true;
     }     
 
     /**
     * Removes a life from the scoreboard
     */
-    removeLife() {
-        document.querySelectorAll('.tries img')[this.missed].src = 'images/lostHeart.png';
-        this.missed++;
-        if (this.missed >= 5) { this.gameOver() }
+    removeLife(letterPress) {
+        if (letterPress.disabled === false) {
+            document.querySelectorAll('.tries img')[this.missed].src = 'images/lostHeart.png';
+            this.missed++;
+            if (this.missed >= 5) { this.gameOver() }
+        }
     }
 
     /**
