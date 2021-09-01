@@ -4,12 +4,95 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [];
+        this.phrases = [ 
+            new Phrase('Fear is the path to the dark side'),
+            new Phrase('Powerful you have become'),
+            new Phrase('Your path you must decide'),
+            new Phrase('Do or do not'),
+            new Phrase('There is no try')];
         this.activePhrase = null;
-        this.startGame = function () {
-            document.getElementById('overlay').style.display = 'none';
-            this.activePhrase = true;
-            addPhraseToDisplay();
-        };
     }
+
+
+    /**
+     * Starts game by hiding start screen overlay and displaying phrase
+     */
+     startGame() {
+        document.getElementById('overlay').style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+     }
+
+    /**
+    * Creates phrases for use in game
+    * @return {array} An array of phrases that could be used in the game
+    */
+    // createPhrases(phrases) {
+    //     new Phrase(phrases)
+    // };
+
+     /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
+     getRandomPhrase() {
+        return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+     }
+
+     /**
+      * Checks to see if the button clicked by the player matches a letter in the phrase, 
+      * and then directs the game based on a correct or incorrect guess.
+      */
+      handleInteraction(letterPress) {
+        const activePhraseArray = this.activePhrase.phraseArray;
+
+        if (!activePhraseArray.includes(letterPress.innerText)) {
+            letterPress.classList.add('wrong');
+                this.removeLife();
+        } else {
+            letterPress.classList.add('chosen');
+                this.activePhrase.showMatchedLetter(letterPress.innerText);
+                if (this.checkForWin() === true) {
+                    this.gameOver();
+                }
+        }
+
+    
+    }
+        
+
+    /**
+    * Removes a life from the scoreboard
+    */
+    removeLife() {
+        document.querySelectorAll('.tries img')[0].src = 'images/lostHeart.png';
+        this.missed++;
+        if (this.missed >= 5) {
+            this.gameOver()
+        }
+    }
+
+    /**
+     * Checks to see if the player has revealed all of the letters in the active phrase
+     */
+     checkForWin() {
+        return document.querySelectorAll('.hide').length === 0;
+     }
+
+     /**
+      * Displays the original start screen overlay
+      * and depending on the outcome of the game, updates the overlay h1 element with a friendly win or loss message
+      */
+      gameOver() {
+        const overlay = document.getElementById('overlay');
+        let gameOverMsg = document.getElementById('game-over-message');
+        overlay.style.display = 'block';
+        if (this.checkForWin() === true) {
+            gameOverMsg.innerText = 'YOU GOT IT!';
+            overlay.classList.add('win');
+        } else {
+            gameOverMsg.innerText = 'GAME OVER. TOO BAD.';
+            overlay.classList.add('lose');
+        }
+      }
 }
