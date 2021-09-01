@@ -37,21 +37,17 @@ class Game {
     * Checks to see if the button clicked by the player matches a letter in the phrase, 
     * and then directs the game based on a correct or incorrect guess.
     */
-    handleInteraction(letterPress) {
-        
+    handleInteraction(letterPress) { 
         const activePhraseArray = this.activePhrase.phraseArray;
-
-        if (!activePhraseArray.includes(letterPress.innerText)) {
-            letterPress.classList.add('wrong');
-                this.removeLife();
-        } else {
+        if (this.activePhrase.checkLetter(letterPress)) {
             letterPress.classList.add('chosen');
                 this.activePhrase.showMatchedLetter(letterPress.innerText);
                 if (this.checkForWin() === true) {
                     this.gameOver();
-                    
-                    
                 }
+        } else {
+            letterPress.classList.add('wrong');
+                this.removeLife();
         }
     }     
 
@@ -68,16 +64,16 @@ class Game {
      * Checks to see if the player has revealed all of the letters in the active phrase
      * @returns {Boolean} True if player has won
      */
-     checkForWin() {
+    checkForWin() {
         return document.querySelectorAll('.hide').length === 0;
-     }
+    }
 
-     /**
-      * Displays the original start screen overlay
-      * If player won: winner message
-      * If lost: loser message
-      */
-      gameOver() {
+    /**
+     * Displays the original start screen overlay
+     * If player won: winner message
+     * If lost: loser message
+    */
+    gameOver() {
         const overlay = document.getElementById('overlay');
         let gameOverMsg = document.getElementById('game-over-message');
         overlay.style.display = 'block';
@@ -88,10 +84,17 @@ class Game {
             gameOverMsg.innerText = 'GAME OVER. TOO BAD.';
             overlay.classList.add('lose');
         }
+        // Resets keyboard
         Array.from(document.getElementsByClassName('key')).map(element => {
             element.classList.remove("wrong"); 
             element.classList.remove("chosen");
+        });
+        // Resets missed points
+        this.missed = 0;
+        // Resets hearts
+        const hearts = document.querySelectorAll('.tries img');
+        for (let i=0; i<hearts.length;i++) {
+            hearts[i].src = 'images/liveHeart.png'
         }
-        )
-      }
+    }
 }

@@ -9,3 +9,4 @@
 ## Extra Credit:
 
 1. Add keyboard functionality ✅
+2. Making the project your own 🚧

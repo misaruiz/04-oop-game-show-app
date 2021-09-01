@@ -4,7 +4,6 @@
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
-        this.phraseArray = Array.from(this.phrase);
     }
 
     /**
@@ -13,13 +12,13 @@ class Phrase {
      addPhraseToDisplay() {
         document.querySelector('#phrase ul').innerHTML = '';
         document.querySelector('#phrase ul').insertAdjacentHTML("beforeend",
-            this.phraseArray.map(letter => {
-                                if(letter === ' ') {
-                                    return `<li class="space"> </li>`
-                                } else {
-                                    return `<li class="hide letter ${letter}">${letter}</li>`
-                                }
-                            }).join('')
+            Array.from(this.phrase).map(letter => {
+                if(letter === ' ') {
+                    return `<li class="space"> </li>`
+                } else {
+                    return `<li class="hide letter ${letter}">${letter}</li>`
+                }
+            }).join('')
         ) 
     }
 
@@ -27,20 +26,18 @@ class Phrase {
      * Checks to see if the letter selected by the player matches a letter in the phrase
      * @returns {Boolean} True if letter matches
      */
-    // checkLetter(letterPress, activePhrase) {
-    //     activePhrase.includes(letterPress.innerText)
-    // }
+    checkLetter(letterPress) {
+        return (this.phrase.includes(letterPress.innerText || letterPress.key))
+    }
 
     /**
      * Reveals the letter(s) on the board that matches the player's selection
      */
     showMatchedLetter(letter) {
-
         Array.from(document.getElementsByClassName(letter)).map(element => {
             element.classList.add("show"); 
             element.classList.remove("hide");
-        }
-        )
+        })
     }
 }
 
