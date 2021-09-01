@@ -50,7 +50,7 @@ class Game {
                 if (this.checkForWin() === true) {
                     this.gameOver();
                     
-                    )
+                    
                 }
         }
     }     
@@ -92,6 +92,6 @@ class Game {
             element.classList.remove("wrong"); 
             element.classList.remove("chosen");
         }
-
+        )
       }
 }
