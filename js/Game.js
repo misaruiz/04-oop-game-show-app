@@ -76,7 +76,7 @@ class Game {
     gameOver() {
         const overlay = document.getElementById('overlay');
         let gameOverMsg = document.getElementById('game-over-message');
-        overlay.style.display = 'block';
+        overlay.style.display = 'flex';
         if (this.checkForWin() === true) {
             gameOverMsg.innerText = 'YOU GOT IT!';
             overlay.classList.add('win');
