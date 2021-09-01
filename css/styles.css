@@ -92,7 +92,7 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: var(--color-keys);
 }
 
 /* Phrase */
@@ -191,7 +191,8 @@ button {
 }
 
 .win {
-  background-color: var(--color-win);
+  background-image: url("../images/dagobah-train.png");
+  /* background-color: var(--color-win); */
 }
 
 .win a {
@@ -199,7 +200,8 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-image: url("../images/dagobah-nightmare.png");
+  /* background-color: #f5785f; */
 }
 
 .lose a {

@@ -78,10 +78,10 @@ class Game {
         let gameOverMsg = document.getElementById('game-over-message');
         overlay.style.display = 'flex';
         if (this.checkForWin() === true) {
-            gameOverMsg.innerText = 'YOU GOT IT!';
+            gameOverMsg.innerHTML = "WON YOU HAVE! <BR> Always pass on what you have learned.";
             overlay.classList.add('win');
         } else {
-            gameOverMsg.innerText = 'GAME OVER. TOO BAD.';
+            gameOverMsg.innerHTML = "YOU HAVE LOST!<br>If no mistake you have made, losing you are.<br>A different game you should play.";
             overlay.classList.add('lose');
         }
         // Resets keyboard
