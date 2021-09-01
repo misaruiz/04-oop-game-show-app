@@ -140,8 +140,9 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: #9a2408;
   color: #ffffff;
+  transform: rotate(3deg);
 }
 
 .btn__reset {
@@ -207,3 +208,33 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+li.tries {
+  width: 48px;
+  overflow: hidden;
+  margin-right: -4px;
+}
+
+li.tries:nth-child(2) img {
+  margin-left: -48px;
+}
+
+li.tries:nth-child(3) img {
+  margin-left: -96px;
+}
+
+li.tries:nth-child(4) img {
+  margin-left: -144px;
+}
+
+li.tries:nth-child(5) img {
+  margin-left: -192px;
+}
+
+/* li.handle {
+  width: 80px;
+  overflow: hidden;
+}
+li.handle img {
+  margin-left: -162px;
+} */
