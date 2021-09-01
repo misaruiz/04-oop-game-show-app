@@ -49,10 +49,7 @@ class Game {
                 this.activePhrase.showMatchedLetter(letterPress.innerText);
                 if (this.checkForWin() === true) {
                     this.gameOver();
-                    Array.from(document.getElementsByClassName('key')).map(element => {
-                        element.classList.remove("wrong"); 
-                        element.classList.remove("chosen");
-                    }
+                    
                     )
                 }
         }
@@ -90,6 +87,10 @@ class Game {
         } else {
             gameOverMsg.innerText = 'GAME OVER. TOO BAD.';
             overlay.classList.add('lose');
+        }
+        Array.from(document.getElementsByClassName('key')).map(element => {
+            element.classList.remove("wrong"); 
+            element.classList.remove("chosen");
         }
 
       }
