@@ -13,23 +13,17 @@ class Game {
         this.activePhrase = null;
     }
 
-
     /**
-     * Starts game by hiding start screen overlay and displaying phrase
+     * STARS GAME: 
+     * Hides start screen overlay
+     * Gets random phrase
+     * Displays phrase on screen
      */
      startGame() {
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
      }
-
-    /**
-    * Creates phrases for use in game
-    * @return {array} An array of phrases that could be used in the game
-    */
-    // createPhrases(phrases) {
-    //     new Phrase(phrases)
-    // };
 
      /**
     * Selects random phrase from phrases property
@@ -39,11 +33,12 @@ class Game {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
      }
 
-     /**
-      * Checks to see if the button clicked by the player matches a letter in the phrase, 
-      * and then directs the game based on a correct or incorrect guess.
-      */
-      handleInteraction(letterPress) {
+    /**
+    * Checks to see if the button clicked by the player matches a letter in the phrase, 
+    * and then directs the game based on a correct or incorrect guess.
+    */
+    handleInteraction(letterPress) {
+        
         const activePhraseArray = this.activePhrase.phraseArray;
 
         if (!activePhraseArray.includes(letterPress.innerText)) {
@@ -54,26 +49,27 @@ class Game {
                 this.activePhrase.showMatchedLetter(letterPress.innerText);
                 if (this.checkForWin() === true) {
                     this.gameOver();
+                    Array.from(document.getElementsByClassName('key')).map(element => {
+                        element.classList.remove("wrong"); 
+                        element.classList.remove("chosen");
+                    }
+                    )
                 }
         }
-
-    
-    }
-        
+    }     
 
     /**
     * Removes a life from the scoreboard
     */
     removeLife() {
-        document.querySelectorAll('.tries img')[0].src = 'images/lostHeart.png';
+        document.querySelectorAll('.tries img')[this.missed].src = 'images/lostHeart.png';
         this.missed++;
-        if (this.missed >= 5) {
-            this.gameOver()
-        }
+        if (this.missed >= 5) { this.gameOver() }
     }
 
     /**
      * Checks to see if the player has revealed all of the letters in the active phrase
+     * @returns {Boolean} True if player has won
      */
      checkForWin() {
         return document.querySelectorAll('.hide').length === 0;
@@ -81,7 +77,8 @@ class Game {
 
      /**
       * Displays the original start screen overlay
-      * and depending on the outcome of the game, updates the overlay h1 element with a friendly win or loss message
+      * If player won: winner message
+      * If lost: loser message
       */
       gameOver() {
         const overlay = document.getElementById('overlay');
@@ -94,5 +91,6 @@ class Game {
             gameOverMsg.innerText = 'GAME OVER. TOO BAD.';
             overlay.classList.add('lose');
         }
+
       }
 }
