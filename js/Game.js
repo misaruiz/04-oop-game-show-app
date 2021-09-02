@@ -40,15 +40,17 @@ class Game {
     handleInteraction(letterPress) { 
         if (this.activePhrase.checkLetter(letterPress)) {
             letterPress.classList.add('chosen');
-                this.activePhrase.showMatchedLetter(letterPress.innerText);
-                if (this.checkForWin() === true) {
-                    this.gameOver();
-                }
+            this.activePhrase.showMatchedLetter(letterPress.innerText);
+            letterPress.disabled = true;
+            if (this.checkForWin() === true) {
+                this.gameOver();
+            }
         } else {
             letterPress.classList.add('wrong');
-                this.removeLife(letterPress);
+            this.removeLife(letterPress);
+            
         }
-        letterPress.disabled = true;
+        
     }     
 
     /**
@@ -56,6 +58,7 @@ class Game {
     */
     removeLife(letterPress) {
         if (letterPress.disabled === false) {
+            letterPress.disabled = true;
             document.querySelectorAll('.tries img')[this.missed].src = 'images/lostHeart.png';
             this.missed++;
             if (this.missed >= 5) { this.gameOver() }
@@ -90,6 +93,7 @@ class Game {
         Array.from(document.getElementsByClassName('key')).map(element => {
             element.classList.remove("wrong"); 
             element.classList.remove("chosen");
+            element.disabled = false;
         });
         // Resets missed points
         this.missed = 0;

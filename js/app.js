@@ -18,6 +18,7 @@ startButton.addEventListener('click', () => {
 for (key of document.getElementById('qwerty').querySelectorAll('.key')) {
     key.addEventListener('click', (e) => {
         newGame.handleInteraction(e.target);
+        console.log(newGame.missed);
     })
 }
 
