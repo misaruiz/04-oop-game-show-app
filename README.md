@@ -6,10 +6,10 @@
 
 ## Extra Credit:
 
-- [x] Add keyboard functionality :technologist:
+- [x] **Add keyboard functionality** :technologist:
   - Let players use their physical computer keyboard to enter guesses.
-- [x] Making the project my own :artist:
-  - [x] Detail style changes
+- [x] **Making the project my own** :artist:
+  - [x] **Detail style changes**
     - **Font-family:** Rajdhani
     - **Start Screen**
       - .start background-image
