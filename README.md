@@ -6,9 +6,9 @@
 
 ## Extra Credit:
 
-- [x] Add keyboard functionality
+- [x] Add keyboard functionality :technologist:
   - Let players use their physical computer keyboard to enter guesses. You'll need to use the keydown or keyup event.
-- [x] Making the project my own
+- [x] Making the project my own :artist:
   - [x] Detail style changes
     - Font-family
     - Start Screen
