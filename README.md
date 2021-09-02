@@ -7,7 +7,7 @@
 ## Extra Credit:
 
 - [x] Add keyboard functionality :technologist:
-  - Let players use their physical computer keyboard to enter guesses. You'll need to use the keydown or keyup event.
+  - Let players use their physical computer keyboard to enter guesses.
 - [x] Making the project my own :artist:
   - [x] Detail style changes
     - **Font-family:** Rajdhani
@@ -16,8 +16,8 @@
       - #btn\_\_reset background-color, color
     - **Game Screen**
       - body background-image
-      - #\qwerty .key background-color and transform: rotate(3deg) when wrong
-      - #\scoreboard li.tries heart imgages into a 5 part lightsaber
+      - #qwerty .key background-color and transform: rotate(3deg) when wrong
+      - #scoreboard li.tries heart imgages into a 5 part lightsaber
     - **Lose Screen**
-      - #\overlay .lose background-image
-      - Win Screen - #\overlay .win background-image
+      - #overlay .lose background-image
+      - Win Screen - #overlay .win background-image
