@@ -10,14 +10,14 @@
   - Let players use their physical computer keyboard to enter guesses. You'll need to use the keydown or keyup event.
 - [x] Making the project my own :artist:
   - [x] Detail style changes
-    - Font-family
-    - Start Screen
+    - **Font-family:** Rajdhani
+    - **Start Screen**
       - .start background-image
       - #btn\_\_reset background-color, color
-      - Game Screen
-        - body background-image
-        - #\qwerty .key background-color and transform: rotate(3deg) when wrong
-        - #\scoreboard li.tries heart imgages into a 5 part lightsaber
-    - Lose Screen
+    - **Game Screen**
+      - body background-image
+      - #\qwerty .key background-color and transform: rotate(3deg) when wrong
+      - #\scoreboard li.tries heart imgages into a 5 part lightsaber
+    - **Lose Screen**
       - #\overlay .lose background-image
       - Win Screen - #\overlay .win background-image
