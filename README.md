@@ -1,12 +1,12 @@
 # Project 3 of Full Stack JavaScript Techdegree Course
 
-<p>
-<img src="https://uploads.teamtreehouse.com/production/profile-photos/8931982/thumb_IMG_3204_2-5-profile.jpg" alt="Logo" width="80" height="80">
-</p>
+![This is an illustration of Misael Ruiz](images/misa-avatar.png)
 
-### To see my project, see: <a href="https://misaruiz.github.io/04-oop-game-show-app/" target="_blank">My OOP Game Show App</a>
+### [My OOP Game Show App](https://misaruiz.github.io/04-oop-game-show-app/)
 
 ## Extra Credit:
 
-1. Add keyboard functionality ✅
-2. Making the project your own 🚧
+1. [x] Add keyboard functionality
+   - Let players use their physical computer keyboard to enter guesses. You'll need to use the keydown or keyup event.
+2. [x] Making the project my own
+       [x] Detail style changes - Font-family - Start Screen - .start background-image - #btn\_\_reset background-color, color - Game Screen - body background-image - #\qwerty .key background-color and transform: rotate(3deg) when wrong - #\scoreboard li.tries heart imgages into a 5 part lightsaber - Lose Screen - #\overlay .lose background-image - Win Screen - #\overlay .win background-image
