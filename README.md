@@ -2,7 +2,7 @@
 
 ![This is an illustration of Misael Ruiz](images/misa-avatar.png)
 
-## [My OOP Game Show App](https://misaruiz.github.io/04-oop-game-show-app/)
+## [My OOP Game Show App](https://misaruiz.github.io/04-oop-game-show-app/) :point_left:
 
 ## Extra Credit:
 
